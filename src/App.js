@@ -5,20 +5,7 @@ class App extends React.Component{
       super(props);
       this.state = {
         selectedConnector:'and',
-      expressions:[{key
-        : 
-        "credit_score",
-        object
-        : 
-        {operator
-        : 
-        ">=",
-        score
-        : 
-        "33",
-        value
-        : 
-        "12"}}],
+      expressions:[],
       }
     }
     handleConnectorSelect =(connector)=>{
@@ -28,11 +15,11 @@ class App extends React.Component{
       e.preventDefault();
       const expression = {
         key: e.target.elements.key.value,
-        object:{
+        
           operator:e.target.elements.operator.value,
           value:e.target.elements.value.value,
           score:e.target.elements.score.value,
-        }
+        
       }
       console.log(expression.key);
       // this.state.expressions.map(({expression})=>{
@@ -45,8 +32,21 @@ class App extends React.Component{
 
       
     }
+    handleDeleteExpression = (index) =>{
+      var filteredItems = this.state.expressions.filter(function(item,id){ return index!==id});
+        this.setState((prevState) =>({
+          expressions:filteredItems,
+        }
+        ))
+    }
+    handleGenerateOutput = () =>{
+
+    }
     render(){
-      const expression_list = this.state.expressions.map((items)=>(<li>key:{items.key} operator:{items.operator} value:{items.value} score:{items.score}</li>))
+      const expression_list = this.state.expressions.map((items,index)=>(<li>key:{items.key} operator:{items.operator} value:{items.value} score:{items.score} expression number: {index}<button onClick={()=>this.handleDeleteExpression(index)}>Delete</button></li>))
+      const rules = this.state.expressions.map((items,index)=>({"key":items.key,"output":{"operator":items.operator,"value":items.value,"score":items.score}}));
+      const combinator = {"cominator":this.state.selectedConnector};
+      const output = {rules ,combinator};
       return (<div className='main_container'>
           
           <div className="input_connector">Please select the Input connector type: 
@@ -84,7 +84,12 @@ class App extends React.Component{
             </form>
             
           </div>
-
+          <div className="generate_output">
+            <button onClick={()=>this.handleGenerateOutput}>Generate Output</button>
+          </div>
+          <div className="output">
+              {JSON.stringify(output,null,4)}
+          </div>
 
 
       </div>)
