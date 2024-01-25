@@ -1,12 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
+import './app.css';
 class App extends React.Component{
     constructor(props){
       super(props);
       this.state = {
         selectedConnector:'and',
-      expressions:[],
+      expressions:JSON.parse(localStorage.getItem('expressions')) || [],
       }
+    }
+    componentDidMount() {
+      const storedExpressions = localStorage.getItem('expressions');
+      if (storedExpressions) {
+        this.setState({
+          expressions: JSON.parse(storedExpressions),
+        });
+      }
+    }
+  
+    componentDidUpdate() {
+      localStorage.setItem('expressions', JSON.stringify(this.state.expressions));
     }
     handleConnectorSelect =(connector)=>{
         this.setState({selectedConnector: connector.target.value})
@@ -43,11 +56,14 @@ class App extends React.Component{
 
     }
     render(){
-      const expression_list = this.state.expressions.map((items,index)=>(<li>key:{items.key} operator:{items.operator} value:{items.value} score:{items.score} expression number: {index}<button onClick={()=>this.handleDeleteExpression(index)}>Delete</button></li>))
+      const expression_list = this.state.expressions.map((items,index)=>(<li className='expression_item'>key:{items.key} operator:{items.operator} value:{items.value} score:{items.score} <button className='delete_btn'onClick={()=>this.handleDeleteExpression(index)}>Delete</button></li>))
       const rules = this.state.expressions.map((items,index)=>({"key":items.key,"output":{"operator":items.operator,"value":items.value,"score":items.score}}));
       const combinator = {"cominator":this.state.selectedConnector};
       const output = {rules ,combinator};
-      return (<div className='main_container'>
+
+      return (
+      <div className="main_container">
+        <div className='expression_engine_container'>
           
           <div className="input_connector">Please select the Input connector type: 
              <form>
@@ -58,18 +74,18 @@ class App extends React.Component{
           
           </div>
           <div className="expressions">
-             <ul>{expression_list}</ul>
-            <form onSubmit={this.handleAddExpression}>
-               <label htmlFor='key' >
-                 Select Key :  
+             {expression_list}
+            <form onSubmit={this.handleAddExpression} className='add_expression'>
+               <label htmlFor='key' className='key' >
+                 Key :  
                  <select name='key'>
                   <option value="age">Age</option>
                   <option value="credit_score"> Credit Score</option>
                   <option value="account_balance"> Account Balance</option>
                  </select>
                </label>
-               <label htmlFor='operator'>
-                 Select Operator : 
+               <label htmlFor='operator' className='operator'>
+                 Operator : 
                  <select name='operator'>
                   <option value=">"> Greater than</option>
                   <option value=">="> Greater than or equal to</option>
@@ -80,19 +96,18 @@ class App extends React.Component{
                </label>
                <label htmlFor='value'> Value:<input type='text' name='value' /></label>
                <label htmlFor='score'>Score : <input type='text' name='score'/></label>
-               <button className= 'add_expression' type='submit' > Add expression</button>
+               <button className= 'add_expression_btn' type='submit' > Add expression</button>
             </form>
             
-          </div>
-          <div className="generate_output">
-            <button onClick={()=>this.handleGenerateOutput}>Generate Output</button>
           </div>
           <div className="output">
               {JSON.stringify(output,null,4)}
           </div>
 
 
-      </div>)
+      </div>
+      </div>
+      )
     }
 }
 

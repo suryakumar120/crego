@@ -1,0 +1,67 @@
+.main_container{
+   background-color:  #fff;
+   width: 100%;
+   /* border-collapse: collapse; */
+   font-size: 14px;
+   /* border: 2px black; */
+   /* margin: 30px; */
+   padding: 30px;
+   flex-direction: column;
+   margin-left: 15px;
+   margin-right: 45px;
+}
+.expression_engine_container{
+    padding: 20px;
+    height: 625px;
+    flex-grow: 1;
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.expression_item{
+    display:flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    border:1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-radius: 15px;
+    padding: 10px;
+    .delete_btn{
+        float:right;
+        
+    }
+}
+.add_expression{
+    display: grid;
+    column-gap: 5px;
+    row-gap: 5px;
+    border: 1px solid black;
+    padding-left: 2rem;
+    max-width: 500px;
+    max-width: 500px;
+    /* align-items: center; */
+    margin-bottom: 16px;
+    border-radius: 15px;
+    /* align-content: space-around; */
+    padding:10px;
+    .key{
+        align-self: start;
+        
+    }
+    .operator{
+        grid-column-start: 2;
+        grid-column-end:4;
+    }
+    .add_expression.btn{
+
+    }
+}
+.label{
+    display: flex ;
+    flex-wrap: wrap;
+}
