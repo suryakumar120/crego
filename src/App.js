@@ -5,7 +5,20 @@ class App extends React.Component{
       super(props);
       this.state = {
         selectedConnector:'and',
-      expressions:[{"key" :"","object":{"operator":"","score":"","value":""}}],
+      expressions:[{key
+        : 
+        "credit_score",
+        object
+        : 
+        {operator
+        : 
+        ">=",
+        score
+        : 
+        "33",
+        value
+        : 
+        "12"}}],
       }
     }
     handleConnectorSelect =(connector)=>{
@@ -13,26 +26,27 @@ class App extends React.Component{
     }
     handleAddExpression = (e) =>{
       e.preventDefault();
-      // console.log(this.expressions);
       const expression = {
-        key: e.target.key.value,
-        // object:{
-        //   operator:e.target.operator.value,
-        //   "value":e.target.value.value,
-        //   "score":e.target.score.value,
-        // }
+        key: e.target.elements.key.value,
+        object:{
+          operator:e.target.elements.operator.value,
+          value:e.target.elements.value.value,
+          score:e.target.elements.score.value,
+        }
       }
-      this.state.expressions.map(({i})=>{
-         console.log(i);
-      })
-      this.setState((prevState)=>({
-         expressions : [...prevState.expressions , expression],
-      }))
+      console.log(expression.key);
+      // this.state.expressions.map(({expression})=>{
+      //    console.log(expression);
+      // })
+      console.log(this.state.expressions);
+      this.setState((prevState) =>({expressions : [...prevState.expressions,expression]})
+      )
       
 
       
     }
     render(){
+      const expression_list = this.state.expressions.map((items)=>(<li>key:{items.key} operator:{items.operator} value:{items.value} score:{items.score}</li>))
       return (<div className='main_container'>
           
           <div className="input_connector">Please select the Input connector type: 
@@ -44,10 +58,7 @@ class App extends React.Component{
           
           </div>
           <div className="expressions">
-            { this.state.expressions.map(({expression})=>{{
-                {/* <p>Key: {expression.key} operator: {expression.operator} score:{expression.score} value:{expression.value}</p> */}
-                // <p>key: {expression.key}</p>
-            }})}
+             <ul>{expression_list}</ul>
             <form onSubmit={this.handleAddExpression}>
                <label htmlFor='key' >
                  Select Key :  
