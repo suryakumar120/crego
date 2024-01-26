@@ -18,7 +18,7 @@
 }
 .expression_engine_container{
     padding: 0px;
-    height: 625px;
+    min-height: 625px;
     display: grid;
     grid-template-columns: 45vw 45vw;
     grid-column-gap: 20px;
@@ -26,8 +26,8 @@
     border-radius: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow-x: auto;
-    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
     margin-bottom: 10px;
 }
 .input_area{
@@ -39,6 +39,7 @@
     /* overflow-y: auto; */
     margin-left: 20px;
     .input_connector{
+        
         .input_connector_sentence{
             font-display: flex;
             font-size: 1.5em;
@@ -202,7 +203,7 @@
 .output_area{
     grid-column-start: 2;
     padding: 10px;
-
+    margin-left:30px;
     .output{
         max-height: 60vh;
         overflow-y: scroll;
@@ -221,7 +222,7 @@
     }
     .expression_engine_container{
         grid-template-columns: auto;
-        height: 99vh;
+        /* height: 99vh; */
     }
     .input_area{
         width: 70vw;
@@ -230,6 +231,7 @@
         grid-row-start: 2;
         grid-column-start: 1;
         padding: 5px;
+        margin-left: 0px;
     
         .output{
             max-height: 60vh;
