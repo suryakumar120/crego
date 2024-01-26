@@ -37,11 +37,11 @@ class App extends React.Component {
       score: e.target.elements.score.value,
 
     }
-    console.log(expression.key);
+    // console.log(expression.key);
     // this.state.expressions.map(({expression})=>{
     //    console.log(expression);
     // })
-    console.log(this.state.expressions);
+    // console.log(this.state.expressions);
     this.setState((prevState) => ({ expressions: [...prevState.expressions, expression] })
     )
 
@@ -71,7 +71,7 @@ class App extends React.Component {
     const output = { rules, combinator:this.state.selectedConnector };
 
     return (
-      <div className="main_container">
+      <div className="main_container" id="expression_engine">
         <p className='title'>Web Based Expression Engine</p>
         <div className='expression_engine_container'>
           <div className='input_area'>

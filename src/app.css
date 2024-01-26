@@ -1,11 +1,11 @@
 .main_container{
-    background-image: linear-gradient(180deg, #fff 0%, #e2f1ff 102.4%);
-   width: 100%;
+   background-color:  #fff;
+   /* width: 100%; */
    /* border-collapse: collapse; */
    font-size: 14px;
    /* border: 2px black; */
    /* margin: 30px; */
-   padding: 30px;
+   padding: 0px;
    flex-direction: column;
    margin-left: 15px;
    margin-right: 45px;
@@ -17,7 +17,7 @@
    
 }
 .expression_engine_container{
-    padding: 20px;
+    padding: 0px;
     height: 625px;
     display: grid;
     grid-template-columns: 45vw 45vw;
@@ -27,6 +27,8 @@
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow-x: auto;
+    overflow-y: auto;
+    margin-bottom: 10px;
 }
 .input_area{
     /* display: flex; */
@@ -35,10 +37,12 @@
     grid-column-start: 1;
     grid-column-end: 2;
     /* overflow-y: auto; */
+    margin-left: 20px;
     .input_connector{
         .input_connector_sentence{
-            font-size: 18px;
-            font-weight:500;
+            font-display: flex;
+            font-size: 1.5em;
+            font-weight:bolder;
         }
         padding-bottom: 10px;
         label.radio_labels{
@@ -65,7 +69,7 @@
             border:1px solid black;
             justify-content: space-between;
             /* align-content: ; */
-            align-items: center;
+            /* align-items: center; */
             margin-bottom: 16px;
             border-radius: 15px;
             padding: 10px;
@@ -225,7 +229,7 @@
     .output_area{
         grid-row-start: 2;
         grid-column-start: 1;
-        padding: 10px;
+        padding: 5px;
     
         .output{
             max-height: 60vh;

@@ -1,27 +1,50 @@
 .intro_nav{
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    background-color: #000925;
+    img.company_logo{
+      height: 35px;
+      margin-left: 10px;
+      
+
+    }
+    .navbar_container{
+      display: flex;
+      justify-content: center;
+    }
+    .navbar_options{
+      display: flex;
+      align-content: space-between;
+      width: 60vw;
+      .nav-item{
+        width: 40%;
+      }
+    }
 }
 .intro_main{
     transform: skew(0,-3deg);
     background-image: linear-gradient(180deg, #fff 0%, #e2f1ff 102.4%);
-    height: 100vh;
+    /* height: 100vh; */
     .intro{
   
-      display: flex;
+      display: grid;
+      grid-template-columns: 50% 50%;
       transform: skew(0,3deg);
-      height: 80vh;
+      /* height: 80vh; */
       .intro_text{
-        
+        /* display: flex; */
+        flex-direction: column;
         margin: 0vw 0vw 0vw 10vw;
         max-width: 45vw;
-        .intro_head{
-          font-size: 50px;
+        .intro_title{
+          font-size: 2.5em;
         }
-        .intro_subhead{
-          font-size: 18px;
+        .intro_sub_title{
+          font-size: 1.2em;
         }
-        .intro_invest_btn{
+        .intro_contact_us{
           color:white;
+          width: 12em;
+          height: 2.5em;
           background-color: blue;
           border: transparent;
           border-radius: 5px;
@@ -30,9 +53,25 @@
     
       .intro_animation{
         .intro_img{
-          height: 200px;
+          width: 40vw;
         }
         
+        
+      }
+      @media screen and (max-width:840px) {
+        grid-template-columns: 33% 33% 33%;
+        grid-row-gap: 20px;
+        /* grid-template-rows: 50% 50%; */
+         .intro_text{
+          grid-column-start: 1;
+           grid-column-end: 4;
+         }
+         .intro_animation{
+          grid-row-start:2;
+          .intro_img{
+            width: 80vw;
+          }
+         }
       }
       
       
