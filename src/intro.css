@@ -1,0 +1,58 @@
+.intro_nav{
+    margin-bottom: 30px;
+}
+.intro_main{
+    transform: skew(0,-3deg);
+    background-image: linear-gradient(180deg, #fff 0%, #e2f1ff 102.4%);
+    height: 100vh;
+    .intro{
+  
+      display: flex;
+      transform: skew(0,3deg);
+      height: 80vh;
+      .intro_text{
+        
+        margin: 0vw 0vw 0vw 10vw;
+        max-width: 45vw;
+        .intro_head{
+          font-size: 50px;
+        }
+        .intro_subhead{
+          font-size: 18px;
+        }
+        .intro_invest_btn{
+          color:white;
+          background-color: blue;
+          border: transparent;
+          border-radius: 5px;
+        }
+      }
+    
+      .intro_animation{
+        .intro_img{
+          height: 200px;
+        }
+        
+      }
+      
+      
+    }
+    .style_block{
+      display: flex;
+      margin-bottom: 10vh;
+      .style_block_start{
+        background-color: rgba(20, 88, 234, 0.14);
+        width: 30vw;
+        height: 8vh;
+      }
+      .style_block_end{
+        background-color: #d6b1ff;
+        width: 30vw;
+        height: 8vh;
+        margin-left: auto;
+        float: right;
+      }
+  
+    }
+    
+  }
