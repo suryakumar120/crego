@@ -100,7 +100,7 @@ class App extends React.Component {
                     <option value=">"> Greater than</option>
                     <option value=">="> Greater than or equal to</option>
                     <option value="<"> less than</option>
-                    <option value="<"> less than or equal to</option>
+                    <option value="<=g"> less than or equal to</option>
                     <option value="=">is equal</option>
                   </select>
                 </label>
